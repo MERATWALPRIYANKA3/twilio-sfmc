@@ -114,7 +114,8 @@ exports.execute = function (req, res) {
           .create({ 
              body: body,
              from: '+12523169149',
-             to: to
+             to: to,
+             provideFeedback: true,
            }) 
           .then( (message) => {
             console.log('Response:'+JSON.stringify(message))
