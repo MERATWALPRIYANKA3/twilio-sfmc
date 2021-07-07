@@ -9,6 +9,7 @@ var path        = require('path');
 var request     = require('request');
 var routes      = require('./routes');
 var activity    = require('./routes/activity');
+var util = require('util'),
 
 var app = express();
 
@@ -33,7 +34,7 @@ app.post('/login', routes.login );
 app.post('/logout', routes.logout );
 
 app.post('/inboundmsg',function(req,res){
-  console.log(req);
+  console.log(util.inspect(req));
   console.log("Reply Body:"+res.body);
 });
 
