@@ -9,7 +9,7 @@ var path        = require('path');
 var request     = require('request');
 var routes      = require('./routes');
 var activity    = require('./routes/activity');
-var util = require('util'),
+var util = require('util');
 
 var app = express();
 
