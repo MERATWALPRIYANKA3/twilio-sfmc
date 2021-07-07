@@ -32,6 +32,11 @@ app.get('/', routes.index );
 app.post('/login', routes.login );
 app.post('/logout', routes.logout );
 
+app.post('/inboundmsg',function(req,res){
+  console.log(req);
+  //console.log("Reply Body:"+req.body);
+});
+
 // Custom Hello World Activity Routes
 app.post('/journeybuilder/save/', activity.save );
 app.post('/journeybuilder/validate/', activity.validate );
