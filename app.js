@@ -33,7 +33,7 @@ app.get('/', routes.index );
 app.post('/login', routes.login );
 app.post('/logout', routes.logout );
 
-app.post('/inboundmsg',function(req,res){
+app.get('/inboundmsg',function(req,res){
   console.log(util.inspect(req));
   console.log("Reply Body:"+res.body);
 });
