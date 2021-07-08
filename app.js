@@ -10,14 +10,14 @@ var request     = require('request');
 var routes      = require('./routes');
 var activity    = require('./routes/activity');
 var util = require('util');
-//const SFClient = require('./utils/sfmc-client');
+const SFClient = require('./utils/sfmc-client');
 
 var app = express();
 
 // Configure Express
 app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.json({type: 'application/json'})); 
-//app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //app.use(express.methodOverride());
 //app.use(express.favicon());
@@ -38,6 +38,28 @@ app.post('/inboundmsg',function(req,res){
   console.log(req.body);
   console.log('request------------->'+req);
   console.log("Reply Body:"+res);
+  
+  try
+     {
+         SFClient.saveData(process.env.DATA_EXTENSION_KEY2, [
+                        {
+                        keys: {
+                          Id: req.body.SmsSid+' '+req.body.To
+                        },
+                        values: {
+                           
+                         Body:req.body.Body,
+                         SmsMessageSid:req.body.SmsMessageSid,
+                         From:req.body.From,
+                         To:req.body.To
+                        },
+                      }
+                    ]);
+               }
+                catch(err)   
+               {
+                   console.log(err);
+                }
 });
 
 // Custom Hello World Activity Routes
