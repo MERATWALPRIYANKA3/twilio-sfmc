@@ -36,6 +36,7 @@ app.post('/logout', routes.logout );
 
 app.post('/inboundmsg',function(req,res){
   console.log(req.body);
+  console.log('request------------->'+req);
   console.log("Reply Body:"+res);
 });
 
