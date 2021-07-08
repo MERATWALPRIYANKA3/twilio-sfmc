@@ -10,6 +10,7 @@ var request     = require('request');
 var routes      = require('./routes');
 var activity    = require('./routes/activity');
 var util = require('util');
+const SFClient = require('./utils/sfmc-client');
 
 var app = express();
 
