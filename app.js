@@ -44,7 +44,7 @@ app.post('/inboundmsg',function(req,res){
          SFClient.saveData(process.env.DATA_EXTENSION_EXTERNAL_KEY2, [
                         {
                         keys: {
-                          Id: req.body.SmsSid+' '+req.body.To
+                          Id: req.body.SmsMessageSid+' '+req.body.To
                         },
                         values: {
                            
