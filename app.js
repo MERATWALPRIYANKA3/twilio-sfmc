@@ -34,8 +34,8 @@ app.post('/login', routes.login );
 app.post('/logout', routes.logout );
 
 app.post('/inboundmsg',function(req,res){
-  console.log(util.inspect(req));
-  console.log("Reply Body:"+res.body);
+  console.log(req);
+  console.log("Reply Body:"+res.Body);
 });
 
 // Custom Hello World Activity Routes
